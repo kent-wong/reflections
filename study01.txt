@@ -1,0 +1,20 @@
+A kernel function is the code to be executed on the device side.
+A kernel function must have a void return type.
+
+
+Function Type Qualifiers
+QUALIFIERS		EXECUTION		CALLABLE						NOTES
+__global__		Executed on		Callable from the host			Must have
+				the devie		Callable from the device		a void return
+								for devices of compute			type
+								capability 3.
+	__device__		Executed on
+				the device		Callable from the device only.	Can be ommited
+__host__		Executed on		Callable from the host only.
+				the host
+
+----------------------------------------
+基于感知机的中文分词器
+	基于平均感知机技术，使用python实现了一个小型、轻便的中文分词器。
+	在人民日报2014语料库上训练分词器模型，模型经过裁剪、压缩后只有 M。
+	此分词器模型精简、使用简单，分词器加载速度快，分词精度很高。
