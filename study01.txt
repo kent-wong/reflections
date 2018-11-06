@@ -1,20 +1,76 @@
+this: the hidden parameter
+*	To call the function, you must specify a variable
+Point a;
+a.print();
+==> can be regarded as:
+Point::print(&a);
+--------------------------------------------------
+this: pointer to the caller
+*	Inside member functions, you can use 'this' as the 
+	pointer to the variable that calls the function.
+*	this is a natural local variable of all class member
+	functions that you can not define, but can use it
+	directly.
+
+
+--------------------------------------------------
 A kernel function is the code to be executed on the device side.
 A kernel function must have a void return type.
 
 
 Function Type Qualifiers
-QUALIFIERS		EXECUTION		CALLABLE						NOTES
-__global__		Executed on		Callable from the host			Must have
-				the devie		Callable from the device		a void return
-								for devices of compute			type
+QUALIFIERS		EXECUTION		CALLABLE			NOTES
+__global__		Executed on		Callable from the host		Must have
+			the devie		Callable from the device	a void return
+			for devices of compute			type
 								capability 3.
-	__device__		Executed on
-				the device		Callable from the device only.	Can be ommited
+__device__		Executed on
+			the device		Callable from the device only.	Can be ommited
 __host__		Executed on		Callable from the host only.
-				the host
+			the host
 
-----------------------------------------
+--------------------------------------------------
 基于感知机的中文分词器
 	基于平均感知机技术，使用python实现了一个小型、轻便的中文分词器。
-	在人民日报2014语料库上训练分词器模型，模型经过裁剪、压缩后只有 M。
-	此分词器模型精简、使用简单，分词器加载速度快，分词精度很高。
+	在人民日报2014语料库上训练分词器模型，生成的模型经过裁剪、压缩后只有 M。
+	此分词器模型精简、使用简单，分词器加载速度快，分词精度很高。可配合外部词典，实现对命名实体、专有名词的识别。
+	此分词器提供了丰富的调试命令行，用于观察模型内部成分，调试、试验感知机实现细节。
+
+--------------------------------------------------
+>>> import random
+>>> a = [1, 2, 3, 4, 5, 6]
+>>> a
+[1, 2, 3, 4, 5, 6]
+
+>>> random.shuffle(a); print(a)
+[3, 6, 5, 1, 4, 2]
+>>> random.shuffle(a); print(a)
+[4, 1, 6, 3, 5, 2]
+>>>
+>>> random.shuffle(a); print(a)
+[3, 4, 1, 5, 6, 2]
+>>> a
+[3, 4, 1, 5, 6, 2]
+--------------------------------------------------------
+SSH实现免密码登录：
+1、本地系统执行 ssh-keygen -t rsa 命令，生成密钥文件
+2、在.ssh目录下查看生成的密钥文件：
+	id_rsa 为私钥文件
+	id_rsa.pub 为公钥文件
+3、本地机器执行命令:
+	ssh-copy-id -i ~/.ssh/id_rsa.pub username@remote-machine
+	将公钥文件传输到远程机器
+4、查看远程机器的authorized_keys文件
+	可以看到本地用户username的公钥已经添加到远程机器的
+	username的authorized_keys文件中了
+--------------------------------------------------------
+classic concepts behind MPI's design:
+**communicator
+	A group of processes that have the ability to
+	communicate with one another.
+	Each process is assigned a unique rank.
+**point-to-point
+	One sender, one receiver.
+**collective communication
+		
+Hydra is a process manager.
