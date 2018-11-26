@@ -1,0 +1,4 @@
+** flooding
+	Any bitcoin node that receives a valid transaction it has not seen before will
+	immediately forward it to all other nodes to which it is connected, a propagation
+	technique known as `flooding`.
