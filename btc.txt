@@ -1,4 +1,12 @@
+** bitcoin node
+	Any system, such as a server, desktop application, or wallet, that participate
+	in the bitcoin network by "speaking" the bitcoin protocol is called a bitcoin node.
 ** flooding
 	Any bitcoin node that receives a valid transaction it has not seen before will
 	immediately forward it to all other nodes to which it is connected, a propagation
 	technique known as `flooding`.
+** cryptographic hash
+	1. hard to solve
+	2. easy to verify
+	3. difficulty can be adjusted
+
